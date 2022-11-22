@@ -50,11 +50,11 @@ public class LoginService {
 	private boolean validationCheck(LoginReqDto reqDto) {
 		boolean flg = false;
 		
-		if(reqDto.getUserId().isEmpty()) {
+		if(reqDto.getUserId() == null || reqDto.getUserId() == "") {
 			setErrorReqInfo(HouseholdAccountConstant.USER_ID_PARAM_ERROR);
 			flg = true;
 		}
-		if(reqDto.getPassword().isEmpty()) {
+		if(reqDto.getPassword() == null || reqDto.getPassword() == "") {
 			setErrorReqInfo(HouseholdAccountConstant.PASSWORD_ERROR);
 			flg = true;
 		}
