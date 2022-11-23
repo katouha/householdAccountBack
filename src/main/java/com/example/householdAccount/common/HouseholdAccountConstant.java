@@ -35,4 +35,6 @@ public class HouseholdAccountConstant {
 	public static final String ALREADY_REGIST_PASSWORD = "現在設定済みのパスワードです";
 	
 	public static final String PASSWORD_NOT_EQUALES = "パスワードに誤りがあります";
+	
+	public static final String LOGIN_NOT_MATCH = "ログインIDまたはパスワードに誤りがあります";
 }
