@@ -16,6 +16,9 @@ public class RegistUserReqDto {
 	@JsonProperty("mailAddress")
 	private String mailAddress;
 	
+	@JsonProperty("genderType")
+	private String genderType;
+	
 	@JsonProperty("roleId")
 	private String roleId;
 
@@ -49,6 +52,14 @@ public class RegistUserReqDto {
 
 	public void setMailAddress(String mailAddress) {
 		this.mailAddress = mailAddress;
+	}
+
+	public String getGenderType() {
+		return genderType;
+	}
+
+	public void setGenderType(String genderType) {
+		this.genderType = genderType;
 	}
 
 	public String getRoleId() {

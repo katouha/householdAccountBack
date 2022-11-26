@@ -6,46 +6,20 @@ import com.example.householdAccount.responseDto.ResponseBase;
 
 @Component
 public class RegistUserResDto {
-	private Result result;
+	private ResponseBase result;
 	
 	public RegistUserResDto() {
-		this.result = new Result();
-	}
-	
-	public class Result extends ResponseBase{
-		private String userId;
-		
-		private String password;
-		
-		private String userName;
-		
-		public String getUserId() {
-			return userId;
-		}
-		public void setUserId(String userId) {
-			this.userId = userId;
-		}
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		public String getUserName() {
-			return userName;
-		}
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
-		
+		this.result = new ResponseBase();
 	}
 
-	public Result getResult() {
+	public ResponseBase getResult() {
 		return result;
 	}
 
-	public void setResult(Result result) {
+	public void setResult(ResponseBase result) {
 		this.result = result;
 	}
+
+	
 	
 }

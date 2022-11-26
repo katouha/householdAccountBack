@@ -20,18 +20,17 @@ public class RegistUserService {
 	
 	
 	public RegistUserResDto registUser(RegistUserReqDto reqDto) {
-		//レスポンスオブジェクト定義
-		if(validationCheck(reqDto)) {
-			return resDto;
-		}
 		try {
-			registUserImpl.registUser(reqDto.getUserId(), reqDto.getPassword(), reqDto.getUserName(),reqDto.getMailAddress(), reqDto.getRoleId());
+			//レスポンスオブジェクト定義
+			if(validationCheck(reqDto)) {
+				return resDto;
+			}
+			registUserImpl.registUser(reqDto.getUserId(), reqDto.getPassword(), reqDto.getUserName(),reqDto.getMailAddress(),reqDto.getGenderType() ,reqDto.getRoleId());
+			setSuccessReqInfo(reqDto);
 		}catch(Exception e) {
 			setErrorReqInfo(HouseholdAccountConstant.REGIST_USER_ERROR);
 			return resDto;
 		}
-		
-		setSuccessReqInfo(reqDto);
 		//jsonレスポンス
 		return resDto;
 	}
@@ -94,9 +93,6 @@ public class RegistUserService {
 	 */
 	private void setSuccessReqInfo(RegistUserReqDto req) {
 		RegistUserResDto successResDto = new RegistUserResDto();
-		successResDto.getResult().setPassword(req.getPassword());
-		successResDto.getResult().setUserId(req.getUserId());
-		successResDto.getResult().setUserName(req.getUserName());
 		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		successResDto.getResult().setErrorMessage("");
 		resDto = successResDto;

@@ -23,6 +23,8 @@ public class LoginResDto {
 		
 		private String roleId;
 		
+		private String genderType;
+		
 		public String getUserId() {
 			return userId;
 		}
@@ -53,6 +55,13 @@ public class LoginResDto {
 		public void setRoleId(String roleId) {
 			this.roleId = roleId;
 		}
+		public String getGenderType() {
+			return genderType;
+		}
+		public void setGenderType(String genderType) {
+			this.genderType = genderType;
+		}
+		
 		
 	}
 

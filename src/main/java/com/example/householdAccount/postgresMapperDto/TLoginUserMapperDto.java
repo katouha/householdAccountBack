@@ -9,6 +9,7 @@ public class TLoginUserMapperDto {
 	private String user_name;
 	private String mail_address;
 	private String role_id;
+	private String gender_type;
 	private boolean deleteFlg;
 	private Timestamp insert_date;
 	private Timestamp update_date;
@@ -41,6 +42,12 @@ public class TLoginUserMapperDto {
 	}
 	public void setRole_id(String role_id) {
 		this.role_id = role_id;
+	}
+	public String getGender_type() {
+		return gender_type;
+	}
+	public void setGender_type(String gender_type) {
+		this.gender_type = gender_type;
 	}
 	public boolean isDeleteFlg() {
 		return deleteFlg;

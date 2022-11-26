@@ -85,6 +85,7 @@ public class LoginService {
 		successResDto.getResult().setUserName(userMapper.getUser_name());
 		successResDto.getResult().setMailAddress(userMapper.getMail_address());
 		successResDto.getResult().setRoleId(userMapper.getRole_id());
+		successResDto.getResult().setGenderType(userMapper.getGender_type());
 		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		successResDto.getResult().setErrorMessage("");
 		resDto = successResDto;

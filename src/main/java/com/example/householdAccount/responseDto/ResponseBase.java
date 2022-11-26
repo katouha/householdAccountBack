@@ -1,5 +1,8 @@
 package com.example.householdAccount.responseDto;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ResponseBase {
 	
 	private String returnCd;

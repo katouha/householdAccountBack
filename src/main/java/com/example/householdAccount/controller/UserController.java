@@ -8,20 +8,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.householdAccount.requestDto.user.RegistUserReqDto;
+import com.example.householdAccount.requestDto.user.ReissuePasswordReqDto;
 import com.example.householdAccount.requestDto.user.UpdateUserReqDto;
+import com.example.householdAccount.responseDto.ResponseBase;
 import com.example.householdAccount.responseDto.user.RegistUserResDto;
 import com.example.householdAccount.responseDto.user.UpdateUserResDto;
 import com.example.householdAccount.service.user.RegistUserService;
+import com.example.householdAccount.service.user.ReissuePasswordService;
 import com.example.householdAccount.service.user.UpdateUserService;
 
 @RestController
 @CrossOrigin
-public class RegistUserController {
+public class UserController {
 	@Autowired
 	RegistUserService registUserService;
 	
 	@Autowired
 	UpdateUserService updateUserService;
+	
+	@Autowired
+	ReissuePasswordService reissuePasswordService;
 	
 	@RequestMapping(value = "householdAccount/user/registUser",method = RequestMethod.POST)
     public RegistUserResDto getRegistUser(@RequestBody RegistUserReqDto reqDto) {
@@ -31,5 +37,10 @@ public class RegistUserController {
 	@RequestMapping(value = "householdAccount/user/updateUser",method = RequestMethod.POST)
     public UpdateUserResDto getUpdateUser(@RequestBody UpdateUserReqDto reqDto) {
 		return updateUserService.updateUser(reqDto);
+	}
+	
+	@RequestMapping(value = "householdAccount/user/reissuePassword",method = RequestMethod.POST)
+    public ResponseBase reissuePassword(@RequestBody ReissuePasswordReqDto reqDto) {
+		return reissuePasswordService.reIssuePassword(reqDto);
 	}
 }

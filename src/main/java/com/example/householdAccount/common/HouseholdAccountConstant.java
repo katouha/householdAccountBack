@@ -37,4 +37,6 @@ public class HouseholdAccountConstant {
 	public static final String PASSWORD_NOT_EQUALES = "パスワードに誤りがあります";
 	
 	public static final String LOGIN_NOT_MATCH = "ログインIDまたはパスワードに誤りがあります";
+	
+	public static final String REISSUE_PASSWORD_ERROR = "パスワード再発行に失敗しました。";
 }
