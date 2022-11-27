@@ -41,7 +41,7 @@ public class MailSend {
 					+ "以下パスワードにてログインして下さい。\r\n"
 					+ "また、ログイン後にユーザ情報変更画面にて\r\nパスワードの変更が可能です。\r\n\r\n"
 					+ ""
-					+ "再発行パスワード:" + reissuePass;
+					+ "再発行パスワード\r\n" + reissuePass;
 			mimeMessage.setText(body, "ISO-2022-JP");
 			Transport.send(mimeMessage);
 			System.out.println("メール送信が完了しました。");
