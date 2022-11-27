@@ -24,7 +24,7 @@ public class UpdateUserService {
 			return resDto;
 		}
 		try {
-			userImpl.updateUser(reqDto.getUserId(), reqDto.getNewPassword());
+//			userImpl.updateUser(reqDto.getUserId(), reqDto.getNewPassword());
 		}catch(Exception e) {
 			setErrorReqInfo(HouseholdAccountConstant.UPDATE_USER_ERROR);
 			return resDto;

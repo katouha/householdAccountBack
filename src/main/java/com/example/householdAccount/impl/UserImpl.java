@@ -16,8 +16,8 @@ public interface UserImpl {
 	@Select("SELECT * from t_login_user where user_id = #{user_id} and delete_flg = false")
 	TLoginUserMapperDto getRegistUser(@Param("user_id") String user_Id);
 	
-	@Update("UPDATE t_login_user set password = #{password} where user_id=#{user_id} and delete_flg = false")
-	void updateUser(@Param("user_id") String user_Id,@Param("password") String password);
+	@Update("UPDATE t_login_user set password = #{password},update_date = CURRENT_TIMESTAMP where user_id=#{user_id} and delete_flg = false")
+	void updateUserPassword(@Param("user_id") String user_Id,@Param("password") String password);
 	
 	@Select("SELECT * from t_login_user where user_id = #{user_id} and password = #{password} and delete_flg = false")
 	TLoginUserMapperDto getLogin(@Param("user_id") String user_Id,@Param("password") String password);

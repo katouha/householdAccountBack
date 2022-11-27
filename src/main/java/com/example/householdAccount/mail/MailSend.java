@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MailSend {
 	
-	public boolean reIssuePasswordMail(String mailAddressTo,String userName) {
+	public boolean reIssuePasswordMail(String mailAddressTo,String userName, String reissuePass) {
 		try {
 			Properties property = new Properties();
 			property.put("mail.smtp.host", "smtp.gmail.com");
@@ -41,7 +41,7 @@ public class MailSend {
 					+ "以下パスワードにてログインして下さい。\r\n"
 					+ "また、ログイン後にユーザ情報変更画面にて\r\nパスワードの変更が可能です。\r\n\r\n"
 					+ ""
-					+ "再発行パスワード:"+"新規で発行したパスワードを入れる";
+					+ "再発行パスワード:" + reissuePass;
 			mimeMessage.setText(body, "ISO-2022-JP");
 			Transport.send(mimeMessage);
 			System.out.println("メール送信が完了しました。");
