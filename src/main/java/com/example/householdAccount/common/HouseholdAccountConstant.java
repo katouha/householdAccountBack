@@ -26,7 +26,9 @@ public class HouseholdAccountConstant {
 	
 	public static final String REGIST_USER_ERROR = "登録に失敗しました。";
 	
-	public static final String UPDATE_USER_ERROR = "パスワード更新に失敗しました。";
+	public static final String UPDATE_USER_ERROR = "ユーザ情報変更に失敗しました。";
+	
+	public static final String UPDATE_USER_PASSWORD_ERROR = "パスワード更新に失敗しました。";
 	
 	public static final String LOGIN_ID_ERROR = "誤ったログインIDです";
 	
