@@ -12,7 +12,7 @@ import com.example.householdAccount.requestDto.user.ReissuePasswordReqDto;
 import com.example.householdAccount.requestDto.user.UpdateUserReqDto;
 import com.example.householdAccount.responseDto.ResponseBase;
 import com.example.householdAccount.responseDto.user.RegistUserResDto;
-import com.example.householdAccount.responseDto.user.UpdateUserResDto;
+import com.example.householdAccount.responseDto.user.CommonResDto;
 import com.example.householdAccount.service.user.RegistUserService;
 import com.example.householdAccount.service.user.ReissuePasswordService;
 import com.example.householdAccount.service.user.UpdateUserService;
@@ -35,7 +35,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "householdAccount/user/updateUser",method = RequestMethod.POST)
-    public UpdateUserResDto getUpdateUser(@RequestBody UpdateUserReqDto reqDto) {
+    public CommonResDto getUpdateUser(@RequestBody UpdateUserReqDto reqDto) {
 		return updateUserService.updateUser(reqDto);
 	}
 	

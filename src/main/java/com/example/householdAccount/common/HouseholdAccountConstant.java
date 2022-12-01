@@ -17,6 +17,10 @@ public class HouseholdAccountConstant {
 	
 	public static final String USER_NAME_PARAM_ERROR = "ユーザ名が入力されていません";
 	
+	public static final String MAIL_ADDRESS_PARAM_ERROR = "メールアドレスが入力されていません";
+	
+	public static final String GENDER_TYPE_PARAM_ERROR = "性別が選択されていません";
+	
 	//処理エラー
 	public static final String API_SUCCESS = "0";
 	

@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import com.example.householdAccount.responseDto.ResponseBase;
 
 @Component
-public class UpdateUserResDto {
+public class CommonResDto {
 	
 	private Result result;
 	
-	public UpdateUserResDto() {
+	public CommonResDto() {
 		this.result = new Result();
 	}
 	

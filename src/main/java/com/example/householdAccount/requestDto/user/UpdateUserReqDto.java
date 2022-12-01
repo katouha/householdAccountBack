@@ -7,11 +7,15 @@ public class UpdateUserReqDto {
 	@JsonProperty("userId")
 	private String userId;
 	
-	@JsonProperty("nowPassword")
-	private String nowPassword;
+	@JsonProperty("userName")
+	private String userName;
 	
-	@JsonProperty("newPassword")
-	private String newPassword;
+	@JsonProperty("mailaddress")
+	private String mailaddress;
+	
+	@JsonProperty("genderType")
+	private String genderType;
+	
 
 	public String getUserId() {
 		return userId;
@@ -21,21 +25,28 @@ public class UpdateUserReqDto {
 		this.userId = userId;
 	}
 
-	public String getNowPassword() {
-		return nowPassword;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setNowPassword(String nowPassword) {
-		this.nowPassword = nowPassword;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getNewPassword() {
-		return newPassword;
+	public String getMailaddress() {
+		return mailaddress;
 	}
 
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
+	public void setMailaddress(String mailaddress) {
+		this.mailaddress = mailaddress;
 	}
-	
+
+	public String getGenderType() {
+		return genderType;
+	}
+
+	public void setGenderType(String genderType) {
+		this.genderType = genderType;
+	}
 	
 }
