@@ -45,4 +45,6 @@ public class HouseholdAccountConstant {
 	public static final String LOGIN_NOT_MATCH = "ログインIDまたはパスワードに誤りがあります";
 	
 	public static final String REISSUE_PASSWORD_ERROR = "パスワード再発行に失敗しました。";
+	
+	public static final String NOT_USER_INCOME_ITEM_ERROR = "収入項目の取得に失敗しました。";
 }
