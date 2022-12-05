@@ -11,12 +11,9 @@ import com.example.householdAccount.requestDto.user.RegistUserReqDto;
 import com.example.householdAccount.requestDto.user.ReissuePasswordReqDto;
 import com.example.householdAccount.requestDto.user.UpdateUserPasswordReqDto;
 import com.example.householdAccount.requestDto.user.UpdateUserReqDto;
-import com.example.householdAccount.requestDto.user.UserIdReqDto;
 import com.example.householdAccount.responseDto.ResponseBase;
-import com.example.householdAccount.responseDto.selectItem.GetIncomeItemResDto;
 import com.example.householdAccount.responseDto.user.CommonResDto;
 import com.example.householdAccount.responseDto.user.RegistUserResDto;
-import com.example.householdAccount.service.selectItem.GetIncomeItemService;
 import com.example.householdAccount.service.user.RegistUserService;
 import com.example.householdAccount.service.user.ReissuePasswordService;
 import com.example.householdAccount.service.user.UpdateUserPasswordService;
@@ -37,8 +34,6 @@ public class UserController {
 	@Autowired
 	UpdateUserPasswordService updateUserPasswordService;
 	
-	@Autowired
-	GetIncomeItemService getIncomeItemService;
 	
 	@RequestMapping(value = "householdAccount/user/registUser",method = RequestMethod.POST)
     public RegistUserResDto getRegistUser(@RequestBody RegistUserReqDto reqDto) {
@@ -60,8 +55,4 @@ public class UserController {
 		return updateUserPasswordService.updateUserPassword(reqDto);
 	}
 	
-	@RequestMapping(value = "householdAccount/user/getIncomeItem",method = RequestMethod.POST)
-    public GetIncomeItemResDto reissuePassword(@RequestBody UserIdReqDto reqDto) {
-		return getIncomeItemService.getIncomeItem(reqDto);
-	}
 }
