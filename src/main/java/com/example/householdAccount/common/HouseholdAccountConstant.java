@@ -49,4 +49,6 @@ public class HouseholdAccountConstant {
 	public static final String NOT_USER_INCOME_ITEM_ERROR = "収入項目の取得に失敗しました。";
 	
 	public static final String NOT_USER_USE_ITEM_ERROR = "利用項目の取得に失敗しました。";
+	
+	public static final String NOT_USER_LOCATION_ITEM_ERROR = "利用場所の取得に失敗しました。";
 }

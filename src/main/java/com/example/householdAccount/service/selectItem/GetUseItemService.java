@@ -27,12 +27,17 @@ public class GetUseItemService {
 		if(validationCheck(reqDto)) {
 			return resDto;
 		}
-		List<UseItemMapperDto> useItem = selectItemImpl.getUseItem(reqDto.getUserId());
-		if(useItem == null || useItem.isEmpty()) { 
+		try {
+			List<UseItemMapperDto> useItem = selectItemImpl.getUseItem(reqDto.getUserId());
+			if(useItem == null || useItem.isEmpty()) { 
+				setErrorReqInfo(HouseholdAccountConstant.NOT_USER_USE_ITEM_ERROR);
+				return resDto;
+			}
+			setSuccessReqInfo(useItem);
+		}catch(Exception e) {
 			setErrorReqInfo(HouseholdAccountConstant.NOT_USER_USE_ITEM_ERROR);
 			return resDto;
 		}
-		setSuccessReqInfo(useItem);
 		return resDto;
 	}
 	

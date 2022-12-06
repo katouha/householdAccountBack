@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.householdAccount.requestDto.user.UserIdReqDto;
 import com.example.householdAccount.responseDto.selectItem.GetIncomeItemResDto;
+import com.example.householdAccount.responseDto.selectItem.GetLocationItemResDto;
 import com.example.householdAccount.responseDto.selectItem.GetUseItemResDto;
 import com.example.householdAccount.service.selectItem.GetIncomeItemService;
+import com.example.householdAccount.service.selectItem.GetLocationItemService;
 import com.example.householdAccount.service.selectItem.GetUseItemService;
 
 @RestController
@@ -23,6 +25,9 @@ public class SelectItemController {
 	@Autowired
 	GetUseItemService getUseItemService;
 	
+	@Autowired
+	GetLocationItemService getLocationItemService;
+	
 	@RequestMapping(value = "householdAccount/user/getIncomeItem",method = RequestMethod.POST)
     public GetIncomeItemResDto getIncomeItem(@RequestBody UserIdReqDto reqDto) {
 		return getIncomeItemService.getIncomeItem(reqDto);
@@ -32,5 +37,12 @@ public class SelectItemController {
     public GetUseItemResDto getUseItem(@RequestBody UserIdReqDto reqDto) {
 		return getUseItemService.getUseItem(reqDto);
 	}
+	
+	@RequestMapping(value = "householdAccount/user/getLocationItem",method = RequestMethod.POST)
+    public GetLocationItemResDto getLocationItem(@RequestBody UserIdReqDto reqDto) {
+		return getLocationItemService.getLocationItem(reqDto);
+	}
+	
+	
 
 }

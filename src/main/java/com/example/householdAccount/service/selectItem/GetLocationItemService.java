@@ -8,38 +8,39 @@ import org.springframework.stereotype.Service;
 
 import com.example.householdAccount.common.HouseholdAccountConstant;
 import com.example.householdAccount.impl.SelectItemImpl;
-import com.example.householdAccount.postgresMapperDto.IncomeItemMappperDto;
+import com.example.householdAccount.postgresMapperDto.LocationItemMapperDto;
 import com.example.householdAccount.requestDto.user.UserIdReqDto;
-import com.example.householdAccount.responseDto.selectItem.GetIncomeItemResDto;
-import com.example.householdAccount.responseDto.selectItem.GetIncomeItemResDto.Result.IncomeItemList;
+import com.example.householdAccount.responseDto.selectItem.GetLocationItemResDto;
+import com.example.householdAccount.responseDto.selectItem.GetLocationItemResDto.Result.LocationItemList;
 
 @Service
-public class GetIncomeItemService {
-	
-	@Autowired
-	GetIncomeItemResDto resDto = new GetIncomeItemResDto();
+public class GetLocationItemService {
 	
 	@Autowired
 	SelectItemImpl selectItemImpl;
 	
-	public GetIncomeItemResDto getIncomeItem(UserIdReqDto reqDto) {
+	@Autowired
+	GetLocationItemResDto resDto = new GetLocationItemResDto();
+	
+	public GetLocationItemResDto getLocationItem(UserIdReqDto reqDto) {
 		//レスポンスオブジェクト定義
 		if(validationCheck(reqDto)) {
 			return resDto;
 		}
 		try {
-			List<IncomeItemMappperDto> incomeItem = selectItemImpl.getIncomeItem(reqDto.getUserId());
-			if(incomeItem == null || incomeItem.isEmpty()) { 
-				setErrorReqInfo(HouseholdAccountConstant.NOT_USER_INCOME_ITEM_ERROR);
+			List<LocationItemMapperDto> locationItem = selectItemImpl.getLocationItem(reqDto.getUserId());
+			if(locationItem == null || locationItem.isEmpty()) { 
+				setErrorReqInfo(HouseholdAccountConstant.NOT_USER_LOCATION_ITEM_ERROR);
 				return resDto;
 			}
-			setSuccessReqInfo(incomeItem);
+			setSuccessReqInfo(locationItem);
 		}catch(Exception e) {
-			setErrorReqInfo(HouseholdAccountConstant.NOT_USER_INCOME_ITEM_ERROR);
+			setErrorReqInfo(HouseholdAccountConstant.NOT_USER_LOCATION_ITEM_ERROR);
 			return resDto;
 		}
 		return resDto;
 	}
+	
 	
 	
 	/**
@@ -63,7 +64,7 @@ public class GetIncomeItemService {
 	 * @param message(エラーメッセージ文言)
 	 */
 	private void setErrorReqInfo(String message) {
-		GetIncomeItemResDto errorResDto = new GetIncomeItemResDto();
+		GetLocationItemResDto errorResDto = new GetLocationItemResDto();
 		errorResDto.getResult().setErrorMessage(message);;
 		errorResDto.getResult().setReturnCd(HouseholdAccountConstant.PARAM_ERROR_CODE);
 		resDto = errorResDto;
@@ -74,16 +75,16 @@ public class GetIncomeItemService {
 	 * @param req(リクエスト内容)
 	 * @param res(レスポンス内容)
 	 */
-	private void setSuccessReqInfo(List<IncomeItemMappperDto> imcomeItem) {
-		GetIncomeItemResDto successResDto = new GetIncomeItemResDto();
-		List<IncomeItemList> itemList = new ArrayList<IncomeItemList>();
-		for(IncomeItemMappperDto item : imcomeItem) {
-			IncomeItemList income = successResDto.getResult().new IncomeItemList();
-			income.setItemId(item.getIncome_item_id());
-			income.setItemName(item.getIncome_item_name());
-			itemList.add(income);
+	private void setSuccessReqInfo(List<LocationItemMapperDto> locationItem) {
+		GetLocationItemResDto successResDto = new GetLocationItemResDto();
+		List<LocationItemList> itemList = new ArrayList<LocationItemList>();
+		for(LocationItemMapperDto item : locationItem) {
+			LocationItemList location = successResDto.getResult().new LocationItemList();
+			location.setLocationId(item.getLocation_id());
+			location.setLocationName(item.getLocation_name());
+			itemList.add(location);
 		}
-		successResDto.getResult().setIncomeList(itemList);
+		successResDto.getResult().setUseItemList(itemList);
 		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		successResDto.getResult().setErrorMessage("");
 		resDto = successResDto;
