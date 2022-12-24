@@ -21,8 +21,6 @@ public class LoginResDto {
 		
 		private String mailAddress;
 		
-		private String roleId;
-		
 		private String genderType;
 		
 		public String getUserId() {
@@ -48,12 +46,6 @@ public class LoginResDto {
 		}
 		public void setMailAddress(String mailAddress) {
 			this.mailAddress = mailAddress;
-		}
-		public String getRoleId() {
-			return roleId;
-		}
-		public void setRoleId(String roleId) {
-			this.roleId = roleId;
 		}
 		public String getGenderType() {
 			return genderType;

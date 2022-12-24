@@ -21,5 +21,14 @@ public interface SelectItemImpl {
 	
 	@Select("SELECT * from t_location where user_id = #{user_id} and delete_flg = false")
 	List<LocationItemMapperDto> getLocationItem(@Param("user_id") String user_Id);
+	
+	@Select("SELECT MAX(cast(income_item_id as integer)) from t_income_item;")
+	String getMaxIdIncomeItem();
+	
+	@Select("SELECT MAX(cast(item_id as integer)) from t_use_item")
+	String getMaxIdUseItem();
+	
+	@Select("SELECT MAX(cast(location_id as integer)) from t_location;")
+	String getMaxIdLocationItem();
 
 }

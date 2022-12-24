@@ -13,13 +13,13 @@ import com.example.householdAccount.impl.UserImpl;
 import com.example.householdAccount.mail.MailSend;
 import com.example.householdAccount.postgresMapperDto.TLoginUserMapperDto;
 import com.example.householdAccount.requestDto.user.ReissuePasswordReqDto;
-import com.example.householdAccount.responseDto.ResponseBase;
+import com.example.householdAccount.responseDto.user.CommonResDto;
 
 @Service
 public class ReissuePasswordService {
 	
 	@Autowired
-	ResponseBase resDto = new ResponseBase();
+	CommonResDto resDto = new CommonResDto();
 	
 	@Autowired
 	UserImpl userImpl;
@@ -27,7 +27,7 @@ public class ReissuePasswordService {
 	@Autowired
 	MailSend mailSend;
 	
-	public ResponseBase reIssuePassword(ReissuePasswordReqDto reqDto) {
+	public CommonResDto reIssuePassword(ReissuePasswordReqDto reqDto) {
 		
 		try {
 			if(validationCheck(reqDto)) {
@@ -74,9 +74,9 @@ public class ReissuePasswordService {
 	 * @param message(エラーメッセージ文言)
 	 */
 	private void setErrorReqInfo(String message) {
-		ResponseBase errorResDto = new ResponseBase();
-		errorResDto.setErrorMessage(message);;
-		errorResDto.setReturnCd(HouseholdAccountConstant.PARAM_ERROR_CODE);
+		CommonResDto errorResDto = new CommonResDto();
+		errorResDto.getResult().setErrorMessage(message);;
+		errorResDto.getResult().setReturnCd(HouseholdAccountConstant.PARAM_ERROR_CODE);
 		resDto = errorResDto;
 	}
 	
@@ -86,9 +86,9 @@ public class ReissuePasswordService {
 	 * @param res(レスポンス内容)
 	 */
 	private void setSuccessReqInfo() {
-		ResponseBase successResDto = new ResponseBase();
-		successResDto.setErrorMessage("");;
-		successResDto.setReturnCd(HouseholdAccountConstant.API_SUCCESS);
+		CommonResDto successResDto = new CommonResDto();
+		successResDto.getResult().setErrorMessage("");;
+		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		resDto = successResDto;
 	}
 	

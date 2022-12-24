@@ -84,7 +84,7 @@ public class GetLocationItemService {
 			location.setLocationName(item.getLocation_name());
 			itemList.add(location);
 		}
-		successResDto.getResult().setUseItemList(itemList);
+		successResDto.getResult().setLocationItemList(itemList);
 		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		successResDto.getResult().setErrorMessage("");
 		resDto = successResDto;

@@ -16,19 +16,15 @@ public class GetLocationItemResDto {
 	}
 	
 	public class Result extends ResponseBase{
-		List<LocationItemList> useItemList;
+		List<LocationItemList> locationItemList;
 
-		
-		
-		public List<LocationItemList> getUseItemList() {
-			return useItemList;
+		public List<LocationItemList> getLocationItemList() {
+			return locationItemList;
 		}
 
-
-		public void setUseItemList(List<LocationItemList> useItemList) {
-			this.useItemList = useItemList;
+		public void setLocationItemList(List<LocationItemList> locationItemList) {
+			this.locationItemList = locationItemList;
 		}
-
 
 		public class LocationItemList{
 			

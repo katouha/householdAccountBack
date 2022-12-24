@@ -18,9 +18,6 @@ public class RegistUserReqDto {
 	
 	@JsonProperty("genderType")
 	private String genderType;
-	
-	@JsonProperty("roleId")
-	private String roleId;
 
 	public String getUserId() {
 		return userId;
@@ -61,17 +58,5 @@ public class RegistUserReqDto {
 	public void setGenderType(String genderType) {
 		this.genderType = genderType;
 	}
-
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
-
-	
-
-	
 
 }

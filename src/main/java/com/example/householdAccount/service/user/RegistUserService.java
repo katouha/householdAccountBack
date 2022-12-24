@@ -7,7 +7,7 @@ import com.example.householdAccount.common.HouseholdAccountConstant;
 import com.example.householdAccount.impl.UserImpl;
 import com.example.householdAccount.postgresMapperDto.TLoginUserMapperDto;
 import com.example.householdAccount.requestDto.user.RegistUserReqDto;
-import com.example.householdAccount.responseDto.user.RegistUserResDto;
+import com.example.householdAccount.responseDto.user.CommonResDto;
 
 @Service
 public class RegistUserService {
@@ -16,16 +16,16 @@ public class RegistUserService {
 	UserImpl registUserImpl;
 	
 	@Autowired
-	RegistUserResDto resDto = new RegistUserResDto();
+	CommonResDto resDto = new CommonResDto();
 	
 	
-	public RegistUserResDto registUser(RegistUserReqDto reqDto) {
+	public CommonResDto registUser(RegistUserReqDto reqDto) {
 		try {
 			//レスポンスオブジェクト定義
 			if(validationCheck(reqDto)) {
 				return resDto;
 			}
-			registUserImpl.registUser(reqDto.getUserId(), reqDto.getPassword(), reqDto.getUserName(),reqDto.getMailAddress(),reqDto.getGenderType() ,reqDto.getRoleId());
+			registUserImpl.registUser(reqDto.getUserId(), reqDto.getPassword(), reqDto.getUserName(),reqDto.getMailAddress(),reqDto.getGenderType());
 			setSuccessReqInfo(reqDto);
 		}catch(Exception e) {
 			setErrorReqInfo(HouseholdAccountConstant.REGIST_USER_ERROR);
@@ -56,10 +56,6 @@ public class RegistUserService {
 			setErrorReqInfo(HouseholdAccountConstant.USER_NAME_PARAM_ERROR);
 			flg = true;
 		}
-		if(reqDto.getRoleId().isEmpty()) {
-			setErrorReqInfo(HouseholdAccountConstant.ROLE_ID_PARAM_ERROR);
-			flg = true;
-		}
 		TLoginUserMapperDto tLoginInfo = null;
 		try {
 			tLoginInfo = registUserImpl.getRegistUser(reqDto.getUserId());
@@ -81,7 +77,7 @@ public class RegistUserService {
 	 * @param message(エラーメッセージ文言)
 	 */
 	private void setErrorReqInfo(String message) {
-		RegistUserResDto errorResDto = new RegistUserResDto();
+		CommonResDto errorResDto = new CommonResDto();
 		errorResDto.getResult().setErrorMessage(message);;
 		errorResDto.getResult().setReturnCd(HouseholdAccountConstant.PARAM_ERROR_CODE);
 		resDto = errorResDto;
@@ -92,7 +88,7 @@ public class RegistUserService {
 	 * @param req(リクエスト内容)
 	 */
 	private void setSuccessReqInfo(RegistUserReqDto req) {
-		RegistUserResDto successResDto = new RegistUserResDto();
+		CommonResDto successResDto = new CommonResDto();
 		successResDto.getResult().setReturnCd(HouseholdAccountConstant.API_SUCCESS);
 		successResDto.getResult().setErrorMessage("");
 		resDto = successResDto;
