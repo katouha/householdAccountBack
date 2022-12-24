@@ -29,7 +29,11 @@ public class HouseholdAccountConstant {
 	
 	public static final String USE_DATE_PARAM_ERROR = "利用日が入力されていません";
 	
+	public static final String INCOME_DATE_PARAM_ERROR = "収入日が入力されていません";
+	
 	public static final String USE_INFO_PARAM_ERROR = "品目・金額が入力されていません";
+	
+	public static final String INCOME_INFO_PARAM_ERROR = "収入名・金額が入力されていません";
 	
 	//処理エラー
 	public static final String API_SUCCESS = "0";
@@ -69,4 +73,6 @@ public class HouseholdAccountConstant {
 	public static final String NOT_USER_LOCATION_ITEM_ERROR = "利用場所の取得に失敗しました。";
 	
 	public static final String NOT_REGIST_USE_HISTORY_ERROR = "家計簿の登録に失敗しました。";
+	
+	public static final String NOT_REGIST_INCOME_HISTORY_ERROR = "収入の登録に失敗しました。";
 }

@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.householdAccount.requestDto.user.SetUseHistoryReqDto;
+import com.example.householdAccount.requestDto.user.SetIncomeHistoryReqDto;
 import com.example.householdAccount.responseDto.user.CommonResDto;
-import com.example.householdAccount.service.useHistory.SetUseHistoryService;
+import com.example.householdAccount.service.incomeHistory.SetIncomeHistoryService;
 
 @RestController
 @CrossOrigin
-public class UseHistoryController {
+public class IncomeHistoryController {
 	
 	@Autowired
-	SetUseHistoryService setUseHistoryService;
+	SetIncomeHistoryService setIncomeHistoryService;
 	
-	@RequestMapping(value = "householdAccount/user/setUseHistory",method = RequestMethod.POST)
-    public CommonResDto registUseHistory(@RequestBody SetUseHistoryReqDto reqDto) {
-		return setUseHistoryService.setUseHistory(reqDto);
+	@RequestMapping(value = "householdAccount/user/setIncomeHistory",method = RequestMethod.POST)
+    public CommonResDto registIncomeHistory(@RequestBody SetIncomeHistoryReqDto reqDto) {
+		return setIncomeHistoryService.setIncomeHistory(reqDto);
 	}
 
 }

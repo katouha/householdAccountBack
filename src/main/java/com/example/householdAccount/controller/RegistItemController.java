@@ -29,17 +29,17 @@ public class RegistItemController {
 	SetLocationItemService setLocationItemService;
 	
 	@RequestMapping(value = "householdAccount/user/setIncomeItem",method = RequestMethod.POST)
-    public CommonResDto getIncomeItem(@RequestBody SetIncomeItemReqDto reqDto) {
+    public CommonResDto registIncomeItem(@RequestBody SetIncomeItemReqDto reqDto) {
 		return setIncomeItemService.setIncomeItem(reqDto);
 	}
 	
 	@RequestMapping(value = "householdAccount/user/setUseItem",method = RequestMethod.POST)
-    public CommonResDto getIncomeItem(@RequestBody SetUseItemReqDto reqDto) {
+    public CommonResDto registUseItem(@RequestBody SetUseItemReqDto reqDto) {
 		return setUseItemService.setUseItem(reqDto);
 	}
 	
 	@RequestMapping(value = "householdAccount/user/setLocationItem",method = RequestMethod.POST)
-    public CommonResDto getIncomeItem(@RequestBody SetLocationItemReqDto reqDto) {
+    public CommonResDto registLocationItem(@RequestBody SetLocationItemReqDto reqDto) {
 		return setLocationItemService.setLocationItem(reqDto);
 	}
 
