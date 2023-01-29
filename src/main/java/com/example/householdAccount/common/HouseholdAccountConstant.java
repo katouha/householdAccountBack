@@ -74,5 +74,7 @@ public class HouseholdAccountConstant {
 	
 	public static final String NOT_REGIST_USE_HISTORY_ERROR = "家計簿の登録に失敗しました。";
 	
+	public static final String NOT_SEARCH_USE_HISTORY_ERROR = "家計簿の取得に失敗しました。";
+	
 	public static final String NOT_REGIST_INCOME_HISTORY_ERROR = "収入の登録に失敗しました。";
 }

@@ -19,8 +19,14 @@ public interface SelectItemImpl {
 	@Select("SELECT * from t_use_item where user_id = #{user_id} and delete_flg = false")
 	List<UseItemMapperDto> getUseItem(@Param("user_id") String user_Id);
 	
+	@Select("SELECT * from t_use_item where user_id = #{user_id} and item_id = #{item_id} and delete_flg = false")
+	UseItemMapperDto getUseItemFind(@Param("user_id") String user_Id, @Param("item_id") String item_id);
+	
 	@Select("SELECT * from t_location where user_id = #{user_id} and delete_flg = false")
 	List<LocationItemMapperDto> getLocationItem(@Param("user_id") String user_Id);
+	
+	@Select("SELECT * from t_location where user_id = #{user_id} and location_id = #{location_id} and delete_flg = false")
+	LocationItemMapperDto getLocationItemFind(@Param("user_id") String user_Id,@Param("location_id") String location_id);
 	
 	@Select("SELECT MAX(cast(income_item_id as integer)) from t_income_item;")
 	String getMaxIdIncomeItem();
